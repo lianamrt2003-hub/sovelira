@@ -11,7 +11,7 @@ export function CoatCard({ coat }: { coat: Coat }) {
       <h2 className="mt-2 text-title font-semibold">{coat.name}</h2>
       <p className="mt-3 text-body font-semibold">{price} ₽</p>
       <p className="mt-3 text-caption text-secondary">
-        {`Размеры: ${coat.sizes.join(", ")}`}
+        {inStock ? `Размеры: ${coat.sizes.join(", ")}` : "Нет в наличии"}
       </p>
     </article>
   );
