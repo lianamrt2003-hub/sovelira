@@ -1,40 +1,24 @@
-import { CourseCard } from "@/components/course-card";
-import { Button } from "@/components/ui/button";
+import { CoatCard } from "@/components/coat-card";
+import { coats } from "@/lib/coats";
+
 export default function Home() {
   return (
     <main className="mx-auto max-w-5xl px-5 py-12">
       <p className="text-caption font-semibold text-primary">
-        ТЕХНИЧЕСКАЯ ГРАМОТНОСТЬ · СТАРТОВЫЙ ПРОЕКТ
+        ШУБЫ ИЗ ИСКУССТВЕННОГО МЕХА
       </p>
       <h1 className="mt-5 text-display font-semibold">SOVELIRA</h1>
       <p className="mt-5 max-w-2xl text-body text-secondary">
-        Проект запущен. Здесь появится ваш продукт: начните с идеи, прочитайте
-        структуру и измените заголовок руками.
+        Каталог моделей сезона. Выберите шубу, чтобы примерить её в шоуруме.
       </p>
       <section
-        className="mt-10 grid gap-5 sm:grid-cols-2"
-        aria-label="Примеры компонентов"
+        className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        aria-label="Каталог шуб"
       >
-        <CourseCard
-          title="Компонент с props"
-          caption="Найдите title, caption, available и compact в исходнике."
-        />
-        <CourseCard
-          title="Другой вариант"
-          caption="Вариант карточки без доступных мест."
-          available={false}
-          compact
-        />
+        {coats.map((coat) => (
+          <CoatCard key={coat.id} coat={coat} />
+        ))}
       </section>
-      <div className="mt-8">
-        <Button asChild>
-          <a href="/api/health">Проверить серверный маршрут</a>
-        </Button>
-      </div>
-      <p className="mt-8 text-caption text-secondary">
-        Для первого запуска база и ключ модели не нужны. PRODUCT.md, CLAUDE.md и
-        DECISIONS.md заполняются на занятиях.
-      </p>
     </main>
   );
 }
