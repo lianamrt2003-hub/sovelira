@@ -12,6 +12,15 @@ npm run dev
 
 Откройте адрес из терминала (обычно http://localhost:3000). PowerShell: при блокировке npm.ps1 используйте npm.cmd. Для Git откройте второй терминал. Измените заголовок в app/page.tsx и цвет --color-primary в app/globals.css руками.
 
+## Запуск на Windows: что пришлось сделать
+Проверено 24.11.2026 на Windows 11, Node 24.22.3.
+
+1. Склонировать репозиторий: `git clone https://github.com/lianamrt2003-hub/sovelira.git`, затем `cd sovelira`.
+2. В PowerShell вместо `npm` писать `npm.cmd`: `npm.cmd ci`, затем `npm.cmd run dev`.
+3. Если `npm.cmd ci` падает с ошибкой `ECONNRESET` (обрыв сети), переключить источник пакетов и повторить:
+   `npm.cmd config set registry https://registry.npmmirror.com`, затем снова `npm.cmd ci`. Установка заняла около 5 минут.
+4. Открыть http://localhost:3000. Ссылка про telemetry в терминале не нужна — это сообщение Next.js о статистике.
+
 ## Проверки
 ```text
 npm run typecheck
