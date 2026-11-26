@@ -16,13 +16,22 @@ export function Hero() {
   const [open, setOpen] = useState(false);
   return (
     <section aria-label="Обложка" className="relative h-svh min-h-140 overflow-hidden bg-ink text-paper">
+      {/* Телефон: вертикальное фото во весь рост, чтобы была видна шуба. Компьютер: горизонтальное. */}
+      <Image
+        src="/shuby/hero-model-mobile.jpg"
+        alt="Девушка в коричневой шубе с огромным меховым капюшоном, во весь рост"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[50%_20%] brightness-[0.85] md:hidden"
+      />
       <Image
         src="/shuby/hero-model.jpg"
         alt="Девушка в коричневой шубе с огромным меховым капюшоном и в серебристых очках"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[50%_35%] brightness-[0.8]"
+        className="hidden object-cover object-[50%_35%] brightness-[0.8] md:block"
       />
       {/* затемнение снизу, чтобы белый текст читался на светлом фоне фото */}
       <div aria-hidden className="absolute inset-0 bg-linear-to-t from-ink/70 via-ink/10 to-ink/30"
@@ -52,17 +61,17 @@ export function Hero() {
         </nav>
       )}
 
-      <div className="absolute inset-x-4 bottom-6 z-10 flex flex-col gap-4 md:inset-x-10 md:bottom-10 md:flex-row md:items-end md:justify-between md:gap-12">
-        <h1 className="font-brand text-[clamp(6rem,17vw,15rem)] leading-[0.8]">VORS</h1>
+      <div className="absolute inset-x-4 bottom-5 z-10 flex flex-col gap-3 md:inset-x-10 md:bottom-10 md:flex-row md:items-end md:justify-between md:gap-12">
+        <h1 className="font-brand text-[clamp(4.5rem,17vw,15rem)] leading-[0.8]">VORS</h1>
         <div className="max-w-md md:mb-3">
-          <p className="text-title md:text-[1.375rem] md:leading-snug">
+          <p className="text-body md:text-[1.375rem] md:leading-snug">
             Мех, в который хочется спрятаться.{" "}
             <span className="opacity-60">Бесплатная примерка в шоуруме и бронь шубы на три дня</span>
           </p>
           {/* Кнопка под текстом: светлая, с ценой — сразу видно, куда нажать и сколько стоит */}
           <Link
             href="#collection"
-            className="group mt-6 flex h-14 items-center justify-between bg-paper pr-2 pl-6 text-ink transition-colors hover:bg-tile"
+            className="group mt-4 flex h-14 md:mt-6 items-center justify-between bg-paper pr-2 pl-6 text-ink transition-colors hover:bg-tile"
           >
             <span className="font-label text-label uppercase">Выбрать шубу</span>
             <span className="flex items-center gap-4">
