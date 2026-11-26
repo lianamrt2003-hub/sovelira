@@ -18,11 +18,14 @@ export function Hero() {
     <section aria-label="Обложка" className="relative h-svh min-h-140 overflow-hidden bg-ink text-paper">
       <Image
         src="/shuby/hero-model.jpg"
-        alt="Девушка в коричневой шубе с огромным меховым воротником и в очках"
+        alt="Девушка в коричневой шубе с огромным меховым капюшоном и в серебристых очках"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[50%_30%] brightness-[0.72]"
+        className="object-cover object-[50%_35%] brightness-[0.8]"
+      />
+      {/* затемнение снизу, чтобы белый текст читался на светлом фоне фото */}
+      <div aria-hidden className="absolute inset-0 bg-linear-to-t from-ink/70 via-ink/10 to-ink/30"
       />
 
       <header className="relative z-10 flex h-18 items-center justify-between px-4 text-caption md:px-10 md:text-label md:normal-case">
