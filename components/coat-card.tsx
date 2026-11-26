@@ -1,18 +1,25 @@
-import type { Coat } from "@/lib/coats";
+import Image from "next/image";
+import Link from "next/link";
+import { formatPrice, type Coat } from "@/lib/coats";
 
-// Карточка одной шубы в каталоге. Цвета и размеры текста — только из токенов (app/globals.css).
+// Плитка шубы в блоке «Ещё»: фото на светлом фоне, под ним название и цена.
 export function CoatCard({ coat }: { coat: Coat }) {
   const inStock = coat.sizes.length > 0;
-  const price = new Intl.NumberFormat("ru-RU").format(coat.price);
-
   return (
-    <article className="rounded-card border border-line bg-surface p-6 shadow-card">
-      <p className="text-caption text-secondary">{coat.color}</p>
-      <h2 className="mt-2 text-title font-semibold">{coat.name}</h2>
-      <p className="mt-3 text-body font-semibold">{price} ₽</p>
-      <p className="mt-3 text-caption text-secondary">
-        {inStock ? `Размеры: ${coat.sizes.join(", ")}` : "Нет в наличии"}
-      </p>
+    <article>
+      <Link href={`/coats/${coat.id}`} className="group block">
+        <div className="bg-tile p-4">
+          <Image
+            src={coat.photos[0].src}
+            alt={`Шуба ${coat.name}, ${coat.color}`}
+            width={600}
+            height={800}
+            className={`aspect-3/4 w-full object-contain mix-blend-multiply brightness-102 transition-transform duration-500 group-hover:scale-[1.02] ${inStock ? "" : "opacity-50"}`}
+          />
+        </div>
+        <h3 className="mt-3 font-label text-label uppercase">{coat.name}</h3>
+        <p className={`mt-1 text-caption ${inStock ? "" : "text-muted"}`}>{formatPrice(coat)}</p>
+      </Link>
     </article>
   );
 }

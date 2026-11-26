@@ -1,7 +1,7 @@
-# Правила проекта SOVELIRA
+# Правила проекта VORS
 
 ## Продукт
-Сайт бренда шуб SOVELIRA с записью на примерку в шоурум. Подробно — PRODUCT.md, визуальные правила — DESIGN.md, решения — DECISIONS.md.
+Сайт бренда шуб VORS с записью на примерку в шоурум. Подробно — PRODUCT.md, визуальные правила — DESIGN.md, решения — DECISIONS.md.
 
 ## Стек
 Next.js 16 (App Router), React 19, TypeScript, Tailwind 4, shadcn/ui, Vitest, Playwright. Node 24 (см. .nvmrc и package.json). Точные версии — в package-lock.json.

@@ -1,27 +1,72 @@
 @import "tailwindcss";
+
+/* Токены VORS. Все цвета, шрифты и размеры текста берутся только отсюда. */
 @theme {
- --color-primary: #5a3e36;
- --color-primary-hover: #86351f;
- --color-on-primary: #ffffff;
- --color-surface: #ffffff;
- --color-canvas: #f7f5f2;
- --color-muted: #eee9e2;
- --color-line: #d8d1c8;
- --color-ink: #25231f;
- --color-secondary: #625b52;
- --color-danger: #a52121;
- --color-success: #276445;
- --radius-control: 0.65rem;
- --radius-card: 1.1rem;
- --text-display: clamp(2rem, 5vw, 3.6rem);
- --text-title: 1.5rem;
- --text-body: 1rem;
- --text-caption: 0.875rem;
- --shadow-card: 0 5px 25px rgb(37 35 31 / 0.05);
+  /* цвета */
+  --color-ink: #1e1a18;        /* текст, чёрные кнопки, выбранный размер */
+  --color-paper: #ffffff;      /* фон страниц */
+  --color-surface: #f1eeec;    /* светлые кнопки: размеры, стрелка «назад» */
+  --color-tile: #f3f0ed;       /* плашки шуб в блоке «Ещё» */
+  --color-muted: #6b5446;      /* второстепенный текст */
+  --color-disabled: #b3a397;   /* размер, которого нет в наличии */
+  --color-danger: #8a1f2b;     /* текст ошибки */
+  --color-wine: #5e1624;       /* обводка фокуса с клавиатуры */
+
+  /* совместимость со стартовыми компонентами шаблона */
+  --color-primary: #1e1a18;
+  --color-primary-hover: #3a3230;
+  --color-on-primary: #ffffff;
+  --color-canvas: #ffffff;
+  --color-line: #e3d9cf;
+  --color-secondary: #6b5446;
+  --color-success: #276445;
+  --radius-control: 0;
+  --radius-card: 0;
+  --shadow-card: none;
+
+  /* шрифты */
+  --font-brand: "Forum", serif;
+  --font-label: "Fira Sans Extra Condensed", sans-serif;
+  --font-body: "Geologica", sans-serif;
+
+  /* шкала текста: 7 размеров, больше никаких. Шаг ≈ 1.25, заглавные всегда с разрядкой */
+  --text-caption: 0.75rem;            /* 12 — подписи, цены в плитках, счётчик */
+  --text-caption--line-height: 1.45;
+  --text-label: 0.875rem;             /* 14 — меню, кнопки, названия разделов (ЗАГЛАВНЫЕ) */
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.06em;
+  --text-body: 1rem;                  /* 16 — обычный текст */
+  --text-body--line-height: 1.6;
+  --text-title: 1.25rem;              /* 20 — название шубы на подиуме, цена в карточке */
+  --text-title--line-height: 1.2;
+  --text-h2: 1.75rem;                 /* 28 — заголовок раздела */
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: 0.02em;
+  --text-h1: 2.5rem;                  /* 40 — название шубы в карточке */
+  --text-h1--line-height: 1;
+  --text-logo: 1.5rem;                /* логотип в шапке, только Forum */
+  --text-hero: clamp(7rem, 24vw, 24rem); /* огромный VORS на главной, только Forum */
+  --text-hero--line-height: 0.8;
+
+  /* движение: мягкое появление шубы при листании */
+  --animate-fade: fade 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to { opacity: 1; transform: none; }
+  }
 }
-body { margin: 0; background: var(--color-canvas); color: var(--color-ink); font-family: Arial, sans-serif; }
-* { box-sizing: border-box; }
-button, input, select, textarea { font: inherit; }
-input, select, textarea { width:100%; border:1px solid var(--color-line); border-radius:var(--radius-control); padding:0.7rem; background:var(--color-surface); }
-a, button { touch-action: manipulation; }
-label { display:block; }
+
+/* Базовые стили — в слое base, чтобы классы Tailwind (утилиты) их всегда перебивали */
+@layer base {
+  body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+  * { box-sizing: border-box; }
+  button, input, select, textarea { font: inherit; letter-spacing: inherit; }
+  a, button { touch-action: manipulation; }
+  a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--color-wine); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+}
