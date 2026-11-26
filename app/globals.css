@@ -56,7 +56,7 @@
   --text-h1--letter-spacing: -0.01em;
   --text-logo: 1.75rem;               /* логотип в шапке, Lanze */
   --text-logo--line-height: 1;
-  --text-hero: clamp(7rem, 24vw, 24rem); /* огромный VORS, Lanze */
+  --text-hero: clamp(4.5rem, 17vw, 15rem); /* огромный VORS на обложке, Lanze */
   --text-hero--line-height: 0.8;
 
   /* движение: мягкое появление шубы при листании */

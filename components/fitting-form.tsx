@@ -20,7 +20,7 @@ export function FittingForm({ coat, initialSuccess = false }: { coat: Coat; init
         setDone(true);
       }}
     >
-      <fieldset>
+      <fieldset id="size" className="scroll-mt-20">
         <div className="flex items-baseline justify-between">
           <legend className="font-label text-label uppercase">Размер</legend>
           <button type="button" aria-expanded={showTable} onClick={() => setShowTable((v) => !v)} className="text-caption text-muted underline underline-offset-4">

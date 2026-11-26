@@ -62,9 +62,9 @@ export function Hero() {
       )}
 
       <div className="absolute inset-x-4 bottom-5 z-10 flex flex-col gap-3 md:inset-x-10 md:bottom-10 md:flex-row md:items-end md:justify-between md:gap-12">
-        <h1 className="font-brand text-[clamp(4.5rem,17vw,15rem)] leading-[0.8]">VORS</h1>
+        <h1 className="font-brand text-hero">VORS</h1>
         <div className="max-w-md md:mb-3">
-          <p className="text-body md:text-[1.375rem] md:leading-snug">
+          <p className="text-body md:text-title">
             Мех, в который хочется спрятаться.{" "}
             <span className="opacity-60">Бесплатная примерка в шоуруме и бронь шубы на три дня</span>
           </p>
