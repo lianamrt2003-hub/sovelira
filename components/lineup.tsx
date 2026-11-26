@@ -35,7 +35,7 @@ export function Lineup({ coats }: { coats: Coat[] }) {
 
   return (
     <div className="flex flex-col">
-      <h2 className="text-center font-label text-h2 uppercase tracking-[0.12em]">Коллекции</h2>
+      <h2 className="text-center font-brand text-h2">Коллекции</h2>
 
       <div
         {...swipe}

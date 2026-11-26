@@ -54,7 +54,7 @@ export default async function CoatPage({
               <nav aria-label="Путь" className="text-caption text-muted">
                 <Link href="/#collection" className="hover:text-ink">Коллекция</Link> / <span>{coat.name}</span>
               </nav>
-              <h1 className="mt-4 font-label text-h1 uppercase">{coat.name}</h1>
+              <h1 className="mt-4 font-brand text-h1">{coat.name}</h1>
               <p className="mt-3 text-title">{formatPrice(coat)}</p>
             </div>
 
@@ -89,7 +89,7 @@ export default async function CoatPage({
         )}
 
         <section aria-labelledby="more-title" className="mx-auto max-w-360 border-t border-line px-4 py-12 md:px-8 md:py-16">
-          <h2 id="more-title" className="font-label text-h2 uppercase">Ещё</h2>
+          <h2 id="more-title" className="font-brand text-h2">Ещё</h2>
           {state === "empty" ? (
             <p className="mt-6 text-body text-muted">Других моделей пока нет.</p>
           ) : (

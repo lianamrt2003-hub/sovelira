@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("главная: подиум из 7 шуб листается", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Зима 2026", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "VORS", level: 1 })).toBeVisible();
   await expect(page.getByText("01 / 07")).toBeVisible();
   await page.getByRole("button", { name: "Следующая модель" }).click();
   await expect(page.getByText("02 / 07")).toBeVisible();
