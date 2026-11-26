@@ -46,15 +46,15 @@ export function SiteFooter() {
         <p className="font-brand text-logo">VORS</p>
         <div>
           <p className="font-label text-caption uppercase text-muted">Шоурум</p>
-          <p className="mt-2 text-small">Москва, Большая Никитская, 12<br />Каждый день, <span className="whitespace-nowrap">11:00–21:00</span></p>
+          <p className="mt-1.5 text-caption">Москва, Большая Никитская, 12<br />Каждый день, <span className="whitespace-nowrap">11:00–21:00</span></p>
         </div>
         <div>
           <p className="font-label text-caption uppercase text-muted">Примерка</p>
-          <p className="mt-2 text-small">Бесплатно, по записи.<br />Шубу отложим на три дня.</p>
+          <p className="mt-1.5 text-caption">Бесплатно, по записи.<br />Шубу отложим на три дня.</p>
         </div>
         <div>
           <p className="font-label text-caption uppercase text-muted">Связаться</p>
-          <p className="mt-2 text-small"><a href="tel:+74950000000" className="whitespace-nowrap underline underline-offset-2">+7 495 000-00-00</a></p>
+          <p className="mt-1.5 text-caption"><a href="tel:+74950000000" className="whitespace-nowrap underline underline-offset-2">+7 495 000-00-00</a></p>
         </div>
       </div>
     </footer>
