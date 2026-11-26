@@ -1,6 +1,8 @@
-# Стартовый проект · Техническая грамотность
+# VORS — сайт шуб с записью на примерку
 
-Это содержимое GitHub template для индивидуального проекта по силлабусу. Работает без базы и ключей. Здесь намеренно нет готовой фичи, авторизации и LLM: их вы создаёте на занятиях.
+Учебный проект по курсу «Техническая грамотность» (ИТМО, 2026). Сайт бренда шуб из искусственного меха: каталог, карточка шубы и запись на бесплатную примерку в шоуруме. Работает на моковых данных, без базы и ключей. Оплаты, корзины и доставки нет.
+
+Что за продукт — PRODUCT.md, как он выглядит — DESIGN.md, почему так — DECISIONS.md.
 
 ## Первые пять минут
 Node 24 LTS и git. Нажмите Use this template → создайте свой репозиторий. Склонируйте его, перейдите в папку:
@@ -10,7 +12,7 @@ npm ci
 npm run dev
 ```
 
-Откройте адрес из терминала (обычно http://localhost:3000). PowerShell: при блокировке npm.ps1 используйте npm.cmd. Для Git откройте второй терминал. Измените заголовок в app/page.tsx и цвет --color-primary в app/globals.css руками.
+Откройте адрес из терминала (обычно http://localhost:3000). PowerShell: при блокировке npm.ps1 используйте npm.cmd. Для Git откройте второй терминал.
 
 ## Запуск на Windows: что пришлось сделать
 Проверено 24.11.2026 на Windows 11, Node 24.22.3.
@@ -33,13 +35,17 @@ npm run test:e2e
 CI запускает эти же проверки на push/PR. E2E поднимает свой сервер на 3100. Smoke-тест — пример инструмента, не закрывает будущий сценарий КТ-4.
 
 ## Карта
-- app/page.tsx — старт; app/api/health/route.ts — серверный маршрут для Network.
-- components/course-card.tsx — компонент с props для МЗ-2, не button.tsx.
-- components/ui/button.tsx — локальная адаптация shadcn/ui на Radix с asChild.
-- app/globals.css — токены Tailwind 4 через @theme.
-- PRODUCT.md, CLAUDE.md, DESIGN.md, DECISIONS.md — заполнить под свой продукт.
-- tests/unit и tests/e2e, .github/workflows/ci.yml — работающие примеры проверок.
-- docs и supabase/migrations — заготовки следующей работы.
+- app/page.tsx — главная: обложка и каталог «Коллекции».
+- app/coats/[id]/page.tsx — карточка шубы с записью на примерку.
+- app/api/health/route.ts — серверный маршрут для проверки.
+- app/globals.css — токены (цвета, шрифты, размеры текста) через @theme.
+- components/ — hero (обложка), lineup (каталог), gallery (фото шубы), fitting-form (запись), size-guide (таблица размеров), states (загрузка / пусто / ошибка), coat-card, site-header (шапка и подвал).
+- components/course-card.tsx — учебный компонент с props для МЗ-2; components/ui/button.tsx — кнопка shadcn/ui.
+- lib/coats.ts — 7 шуб на моках, цены и размеры.
+- public/shuby — фото шуб и обложки; public/fonts — шрифты Lanze и Martian Grotesk (лицензия OFL рядом).
+- Состояния каталога можно посмотреть через адрес: `/?state=loading`, `/?state=empty`, `/?state=error`.
+- tests/unit, tests/e2e, .github/workflows/ci.yml — проверки.
+- docs и supabase/migrations — заготовки следующих пар.
 
 Не коммитить реальные .env, ключи и тестовые пароли. .env.example содержит только имена. Публикация репозитория на GitHub не заменяет деплой на Vercel. Баллы и сроки — по выданному силлабусу.
 

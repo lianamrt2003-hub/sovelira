@@ -42,22 +42,21 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer id="showroom" className="border-t border-line">
-      <div className="mx-auto grid max-w-360 gap-8 px-4 py-10 md:grid-cols-4 md:px-8">
+      <div className="mx-auto grid max-w-360 gap-6 px-4 py-10 md:grid-cols-4 md:gap-8 md:px-8">
         <p className="font-brand text-logo">VORS</p>
         <div>
-          <p className="font-label text-label uppercase">Шоурум</p>
-          <p className="mt-2 text-body">Москва, Большая Никитская, 12<br />Каждый день, 11:00–21:00</p>
+          <p className="font-label text-caption uppercase text-muted">Шоурум</p>
+          <p className="mt-2 text-small">Москва, Большая Никитская, 12<br />Каждый день, <span className="whitespace-nowrap">11:00–21:00</span></p>
         </div>
         <div>
-          <p className="font-label text-label uppercase">Примерка</p>
-          <p className="mt-2 text-body">Бесплатно, по записи.<br />Шубу отложим на три дня.</p>
+          <p className="font-label text-caption uppercase text-muted">Примерка</p>
+          <p className="mt-2 text-small">Бесплатно, по записи.<br />Шубу отложим на три дня.</p>
         </div>
         <div>
-          <p className="font-label text-label uppercase">Связаться</p>
-          <p className="mt-2 text-body"><a href="tel:+74950000000" className="underline underline-offset-4">+7 495 000-00-00</a></p>
+          <p className="font-label text-caption uppercase text-muted">Связаться</p>
+          <p className="mt-2 text-small"><a href="tel:+74950000000" className="whitespace-nowrap underline underline-offset-2">+7 495 000-00-00</a></p>
         </div>
       </div>
-      <p className="mx-auto max-w-360 px-4 pb-8 text-caption text-muted md:px-8">VORS, учебный проект ИТМО, 2026</p>
     </footer>
   );
 }
