@@ -93,7 +93,7 @@ export default async function CoatPage({
           {state === "empty" ? (
             <p className="mt-6 text-body text-muted">Других моделей пока нет.</p>
           ) : (
-            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
               {more.map((c) => <CoatCard key={c.id} coat={c} />)}
             </div>
           )}
